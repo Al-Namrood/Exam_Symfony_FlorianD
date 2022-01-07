@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="mt-3">
+            Création d'un film ou d'une série.
+    </h1>
+
+    {{ form_start(formMovie) }}
+
+    {{ form_row(formMovie.name, {'attr': {'placeholder': "Nom du film ou de la série"}}) }}
+    {{ form_row(formMovie.synopsis, {'attr': {'placeholder': "Il était une fois dans l'espace..."}} ) }}
+    {{ form_row(formMovie.type, {'attr':{ 'placeholder': "Type de film (thriller, action, etc...)" }}) }}
+    {{ form_row(formMovie.img, {'attr':{ 'placeholder': "URL de l'image" }}) }}
+    {{ form_row(formMovie.date, {'attr':{ 'placeholder': "Date du film" }}) }}
+
+    <button type="submit" class="btn btn-success">
+        Ajouter
+    </button>
+
+    {{ form_end(formMovie) }}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MovieController!{% endblock %}
+
+{% block body %}
+    <section class=" mt-5">
+        {% if movies|length <= 0 %}
+            <p class="p-5">Aucuns films pour le moment !</p>
+        {% else %}
+            {% for movie in movies %}
+                <article class=" mt-3">
+                    <h2>{{ movie.name }}</h2>
+                    <div class="metadata">Ecrit le {{ movie.date | date('d/m/Y') }}
+                        à {{ movie.date | date('H:i') }}dans la catégorie {{ movie.type }}
+                    </div>
+
+                    <div class="content">
+                        {# <img src="{{ article.image }}" alt=""> #}
+                        <p>{{ movie.synopsis }}</p>
+                        <a href="{{ path("get_movie", {'id': movie.id}) }}" class="btn btn-info">Lire la suite</a>
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+
+    </section>
+{% endblock %}

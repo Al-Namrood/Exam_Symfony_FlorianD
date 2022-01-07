@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <article class="articles mt-3">
+        <h2>{{ movie.name }}</h2>
+        <div class="metadata">Ecrit le {{ movie.date | date("d:m:Y") }}à {{ movie.date | date("H:i") }}
+            dans la catégorie {{ movie.type }}
+            <div>
+                <div class="content mt-4">
+{#                    <img src="{{ movie.image }}" alt="">#}
+                    <p class=" mt-4">{{ movie.synopsis }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+{#    <section id="commentaires">#}
+{#        {% for comment in article.comments %}#}
+{#            <div class="comment">#}
+{#                <div class="row">#}
+{#                    <div class="col-3">#}
+{#                        {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y') }}</small>)#}
+{#                    </div>#}
+{#                    <div class="col">#}
+{#                        {{ comment.content }}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </section>#}
+{% endblock %}
