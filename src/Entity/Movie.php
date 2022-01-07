@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MovieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MovieRepository::class)
@@ -19,11 +20,21 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 50,
+     *      minMessage = "Le titre doit être au minimum de {{ limit }} caractères",
+     *      maxMessage = "Le titre doit être au maximum de {{ limit }} caractères"
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "Le synopsis doit être au minimum de {{ limit }} caractères",
+     * )
      */
     private $synopsis;
 
@@ -39,6 +50,9 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(
+     *    message = "L'URL '{{ value }}' est invalide",
+     * )
      */
     private $img;
 

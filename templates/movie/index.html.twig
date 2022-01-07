@@ -10,18 +10,16 @@
             {% for movie in movies %}
                 <article class=" mt-3">
                     <h2>{{ movie.name }}</h2>
-                    <div class="metadata">Ecrit le {{ movie.date | date('d/m/Y') }}
-                        à {{ movie.date | date('H:i') }}dans la catégorie {{ movie.type }}
-                    </div>
+                    <p class="font-weight-bold">Genre: {{ movie.type }}</p>
 
                     <div class="content">
-                        {# <img src="{{ article.image }}" alt=""> #}
-                        <p>{{ movie.synopsis }}</p>
-                        <a href="{{ path("get_movie", {'id': movie.id}) }}" class="btn btn-info">Lire la suite</a>
+                        <img src="{{ movie.img }}" alt="Affiche du film {{ movie.name }}" class="w-25">
+                        <div class="metadata mt-2">Ecrit le {{ movie.date | date('d/m/Y') }}</div>
+                        <a href="{{ path("get_movie", {'id': movie.id}) }}" class="btn btn-info">Voir ce film</a>
                     </div>
+
                 </article>
             {% endfor %}
         {% endif %}
-
     </section>
 {% endblock %}

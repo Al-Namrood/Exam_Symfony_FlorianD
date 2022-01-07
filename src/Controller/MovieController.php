@@ -45,6 +45,12 @@ class MovieController extends AbstractController
      */
     public function getMovie(Movie $movie): Response
     {
+        $response = new Response();
+
+        if (!$movie->getId()) {
+            return $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+
 
         return $this->render('movie/details.html.twig', [
             'movie' => $movie,
