@@ -57,6 +57,10 @@ DATABASE_URL="mysql://dbuser:dbpassword@127.0.0.1:3306/dbname"
 Update the entity for the project
 ```
 php bin/console d:s:u --force
+
+php bin/console m:m
+
+php bin/console d:m:m
 ```
 
 ### Step 4
